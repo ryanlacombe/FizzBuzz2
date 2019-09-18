@@ -18,13 +18,15 @@ namespace FizzBuzz2
             //Creates a class that listens for when the list is changed
             EventListener listener = new EventListener(list);
 
+            //Print the initial array
             for (int i = 0; i < fizzbuzzArray.Length; i++)
             {
                 Console.Write(fizzbuzzArray[i] + " ");
             }
             Console.WriteLine("");
-            list.FizzBuzz(fizzbuzzArray);           
-            //list.Clear();
+            //Starts the FizzBuzz program
+            list.FizzBuzz(fizzbuzzArray);
+            //Detatches the listener from the program
             listener.Detatch();
 
             Console.ReadKey();

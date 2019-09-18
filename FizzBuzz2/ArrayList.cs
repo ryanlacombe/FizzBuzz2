@@ -28,10 +28,6 @@ namespace FizzBuzz2
             //Set current array to new array
             _arrayList = newList;
         }
-        public virtual void Clear()
-        {
-
-        }
         public virtual object this[int index]
         {
             get

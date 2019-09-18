@@ -20,12 +20,7 @@ namespace FizzBuzz2
         public override void Remove(object arrayLists, int index)
         {           
             base.Remove(arrayLists, index);           
-        }
-        public override void Clear()
-        {
-            base.Clear();
-            OnChanged(EventArgs.Empty);
-        }
+        }     
         public override object this[int index]
         {
             get
@@ -53,35 +48,43 @@ namespace FizzBuzz2
         {
             _arrayList = arrayLists;            
 
+            //Starts the loop to check if the number can by divded by 3 or 5
             for (int o = 0; o < arrayLists.Length; o++)
             {
                 arrayLists = _arrayList;
+                //Checks if number can be divided by 3 or 5
                 if ((int)arrayLists[o] % 3 == 0 || (int)arrayLists[o] % 5 == 0)
                 {
+                    //Checks if number can be divded by both 3 and 5
                     if ((int)arrayLists[o] % 3 == 0 && (int)arrayLists[o] % 5 == 0)
                     {
                         Console.Write(arrayLists[o] + " ");
                         BuzzFizz();
+                        //Prints the current array
                         for (int i = 0; i < arrayLists.Length; i++)
                         {
                             Console.Write(arrayLists[i] + " ");
                         }
                         Console.WriteLine("");
                     }
+                    //If can't be divded by both, checks if can be divided by 3
                     else if ((int)arrayLists[o] % 3 == 0)
                     {
                         Console.Write(arrayLists[o] + " ");
                         Fizz();
+                        //Prints the current array
                         for (int i = 0; i < arrayLists.Length; i++)
                         {
                             Console.Write(arrayLists[i] + " ");
                         }
                         Console.WriteLine("");
                     }
+                    //If can't be divded by both, checks if can be divided by 3
                     else if ((int)arrayLists[o] % 5 == 0)
                     {
                         Console.Write(arrayLists[o] + " ");
                         Buzz();
+                        //Prints the current array
                         for (int i = 0; i < arrayLists.Length; i++)
                         {
                             Console.Write(arrayLists[i] + " ");
@@ -89,6 +92,7 @@ namespace FizzBuzz2
                         Console.WriteLine("");
                     }
                 }
+                //If the number can't be divded by 3 or 5 removes it and sends an event
                 else if ((int)arrayLists[o] % 3 != 0 || (int)this[o] % 5 != 0)
                 {
                     Remove(arrayLists, o);
