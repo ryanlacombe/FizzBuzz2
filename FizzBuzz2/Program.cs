@@ -23,12 +23,7 @@ namespace FizzBuzz2
                 Console.Write(fizzbuzzArray[i] + " ");
             }
             Console.WriteLine("");
-            list.FizzBuzz(fizzbuzzArray);
-            for (int i = 0; i < fizzbuzzArray.Length; i++)
-            {
-                Console.Write(fizzbuzzArray[i] + " ");
-            }
-            Console.WriteLine("");
+            list.FizzBuzz(fizzbuzzArray);           
             //list.Clear();
             listener.Detatch();
 

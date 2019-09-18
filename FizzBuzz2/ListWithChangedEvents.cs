@@ -17,9 +17,9 @@ namespace FizzBuzz2
             if (Changed != null)
                 Changed(this, e);
         }
-        public override void Remove(int index)
+        public override void Remove(object arrayLists, int index)
         {           
-            base.Remove(index);           
+            base.Remove(arrayLists, index);           
         }
         public override void Clear()
         {
@@ -34,8 +34,7 @@ namespace FizzBuzz2
             }
             set
             {              
-                base[index] = value;
-                OnChanged(EventArgs.Empty);
+                _arrayList[index] = value;                
             }
         }
         static void Buzz()
@@ -63,22 +62,38 @@ namespace FizzBuzz2
                     {
                         Console.Write(arrayLists[o] + " ");
                         BuzzFizz();
+                        for (int i = 0; i < arrayLists.Length; i++)
+                        {
+                            Console.Write(arrayLists[i] + " ");
+                        }
+                        Console.WriteLine("");
                     }
                     else if ((int)arrayLists[o] % 3 == 0)
                     {
                         Console.Write(arrayLists[o] + " ");
                         Fizz();
+                        for (int i = 0; i < arrayLists.Length; i++)
+                        {
+                            Console.Write(arrayLists[i] + " ");
+                        }
+                        Console.WriteLine("");
                     }
                     else if ((int)arrayLists[o] % 5 == 0)
                     {
                         Console.Write(arrayLists[o] + " ");
                         Buzz();
+                        for (int i = 0; i < arrayLists.Length; i++)
+                        {
+                            Console.Write(arrayLists[i] + " ");
+                        }
+                        Console.WriteLine("");
                     }
                 }
                 else if ((int)arrayLists[o] % 3 != 0 || (int)this[o] % 5 != 0)
                 {
-                    Remove(index);
+                    Remove(arrayLists, o);
                     OnChanged(EventArgs.Empty);
+                    o--;
                 }
             }
         }

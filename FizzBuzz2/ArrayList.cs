@@ -11,7 +11,7 @@ namespace FizzBuzz2
     {
         protected object[] _arrayList;
 
-        public virtual void Remove(int index)
+        public virtual void Remove(object arrayLists,int index)
         {           
             //Create new array
             object[] newList = new object[_arrayList.Length - 1];
